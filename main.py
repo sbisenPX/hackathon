@@ -111,34 +111,34 @@ st.markdown(b_title, unsafe_allow_html=True)
 Lane = st.radio("Select Shipment: Status Result ",('1 (PX_1228)','2 (PX_1236)','3 (PX_1241)','4 (PX_1253)','5 (PX_1254)'))
 if Lane == '1 (PX_1228)':
     st.subheader('Status for 1 (PX_1228)')
-    st.write("Spent less than 13 days in range 1 to 15 C: Approve/OK to use")
-    st.write("Spent less than 5 days in range 15 to 20 C: Assess")
-    st.write("Spent less than 2 days in range above 20 C: Assess")
+    st.write("Spent less than 13 days in range 1 to 15 C (4 days 20:47:08): Approve/OK to use")
+    st.write("Spent less than 5 days in range 15 to 20 C (0 days 01:00:34): Assess")
+    st.write("Spent less than 2 days in range above 20 C (1 days 22:52:36): Assess")
     st.subheader('RSB for 1 (PX_1228): 86.70%')
 
 elif Lane == '2 (PX_1236)':
     st.subheader('Status for 2 (PX_1236)')
-    st.write("Spent less than 2 days in range -4 to 1 C:Assess")
-    st.write("Spent less than 13 days in range 1 to 15 C:Approve/OK to use")
+    st.write("Spent less than 2 days in range -4 to 1 C (0 days 03:02:55):Assess")
+    st.write("Spent less than 13 days in range 1 to 15 C (4 days 13:34:17):Approve/OK to use")
     st.subheader('RSB for 2 (PX_1236): 99.15%')
 
 elif Lane == '3 (PX_1241)':
     st.subheader('Status for 3 (PX_1241)')
-    st.write("Spent less than 13 days in range 1 to 15 C: Approve/OK to use")
-    st.write("Spent less than 5 days in range 15 to 20 C: Access")
-    st.write("Spent less than 2 days in range above 20 C: Access")
+    st.write("Spent less than 13 days in range 1 to 15 C (5 days 13:34:31): Approve/OK to use")
+    st.write("Spent less than 5 days in range 15 to 20 C (0 days 02:32:14): Access")
+    st.write("Spent less than 2 days in range above 20 C (0 days 06:35:24): Access")
     st.subheader('RSB for 3 (PX_1241): 97.46%')
 
 elif Lane == '4 (PX_1253)':
     st.subheader('Status for 4 (PX_1253)')
-    st.write("Spent less than 13 days in range 1 to 15 C:Approve/OK to use")
-    st.write("Spent less than 5 days in range 15 to 20 C: Assess")
+    st.write("Spent less than 13 days in range 1 to 15 C (4 days 14:12:04):Approve/OK to use")
+    st.write("Spent less than 5 days in range 15 to 20 C (0 days 03:22:07): Assess")
     st.subheader('RSB for 4 (PX_1253): 99.06%')
 
 elif Lane == '5 (PX_1254)':
     st.subheader('Status for 5 (PX_1254)')
-    st.write("Spent less than 2 days in range -4 to 1 C: Assess")
-    st.write("Spent less than 13 days in range 1 to 15 C: Approve/OK to use")
+    st.write("Spent less than 2 days in range -4 to 1 C (0 days 09:04:18): Assess")
+    st.write("Spent less than 13 days in range 1 to 15 C (4 days 04:41:58): Approve/OK to use")
     st.subheader('RSB for 5 (PX_1254): 97.48%')
 
 # elif Lane == '6 (Clinical Site)':
