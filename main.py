@@ -46,24 +46,30 @@ st.image('images/hackathon_full.png', width=1400)
 # all_paths
 original_title = '<p style="font-family:Montserrat; color:#1A212E; font-size: 60px;">Path Of A Shipment</p>'
 st.markdown(original_title, unsafe_allow_html=True)
-x = st.number_input("Enter Shipment id/node number to get its path")
+if __name__ == '__main__':
+    input = st.empty()
+    x = st.number_input("Enter Shipment id/node number to get its path")
 
+    if x:
+        G = nx.DiGraph([(1, 2), (1, 3), (2, 4), (2, 5), (3, 5),(4,6),(5, 7)])
+        roots = (v for v, d in G.in_degree() if d == 0)
+        leaves = (v for v, d in G.out_degree() if d == 0)
+        all_paths = []
+        for root in roots:
+            for leaf in leaves:
+                paths = nx.all_simple_paths(G, root, leaf)
+                all_paths.extend(paths)
 
-if x:
-    G = nx.DiGraph([(1, 2), (1, 3), (2, 4), (2, 5), (3, 5),(4,6),(5, 7)])
-    roots = (v for v, d in G.in_degree() if d == 0)
-    leaves = (v for v, d in G.out_degree() if d == 0)
-    all_paths = []
-    for root in roots:
-        for leaf in leaves:
-            paths = nx.all_simple_paths(G, root, leaf)
-            all_paths.extend(paths)
-    for i in all_paths:
-        if x in i:
-            dic = {1: "1(PX_1228)", 2:"2(PX_1241)", 3:"3(PX_1241)", 4:"4(PX_1253)", 5:"5(PX_1254)", 6:"6(Clinical Site)", 7:"7(Customer Location)"}
+        path_list= []
+        for i in all_paths:
+            if x in i:
+                path_list.append(i)
+        # path_list       
+        dic = {1: "1(PX_1228)", 2:"2(PX_1241)", 3:"3(PX_1241)", 4:"4(PX_1253)", 5:"5(PX_1254)", 6:"6(Clinical Site)", 7:"7(Customer Location)"}    
+        for i in path_list:
             i_new=[dic.get(n, n) for n in i]
+            st.write(i_new)
 
-    st.write(i_new)
 
 # option = st.multiselect('1 (PX_1228)',('2 (PX_1241)', '3 (PX_1241)', '4 (PX_1253)','5 (PX_1254)','6 (Clinical Site)','7 (Customer Location)'))
 # st.write('You selected:', option)
