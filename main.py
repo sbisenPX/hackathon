@@ -111,34 +111,34 @@ st.markdown(b_title, unsafe_allow_html=True)
 Lane = st.radio("Select Shipment: Status Result ",('1 (PX_1228)','2 (PX_1236)','3 (PX_1241)','4 (PX_1253)','5 (PX_1254)'))
 if Lane == '1 (PX_1228)':
     st.subheader('Status for 1 (PX_1228)')
-    st.write("Spent less than 13 days in range 1 to 15: Approve/OK to use")
-    st.write("Spent less than 5 days in range 15 to 20: Assess")
-    st.write("Spent less than 2 days in range above 20: Assess")
+    st.write("Spent less than 13 days in range 1 to 15 C: Approve/OK to use")
+    st.write("Spent less than 5 days in range 15 to 20 C: Assess")
+    st.write("Spent less than 2 days in range above 20 C: Assess")
     st.subheader('RSB for 1 (PX_1228): 86.70%')
 
 elif Lane == '2 (PX_1236)':
     st.subheader('Status for 2 (PX_1236)')
-    st.write("Spent less than 2 days in range -4 to 1:Assess")
-    st.write("Spent less than 13 days in range 1 to 15:Approve/OK to use")
+    st.write("Spent less than 2 days in range -4 to 1 C:Assess")
+    st.write("Spent less than 13 days in range 1 to 15 C:Approve/OK to use")
     st.subheader('RSB for 2 (PX_1236): 99.15%')
 
 elif Lane == '3 (PX_1241)':
     st.subheader('Status for 3 (PX_1241)')
-    st.write("Spent less than 13 days in range 1 to 15: Approve/OK to use")
-    st.write("Spent less than 5 days in range 15 to 20: Access")
-    st.write("Spent less than 2 days in range above 20: Access")
+    st.write("Spent less than 13 days in range 1 to 15 C: Approve/OK to use")
+    st.write("Spent less than 5 days in range 15 to 20 C: Access")
+    st.write("Spent less than 2 days in range above 20 C: Access")
     st.subheader('RSB for 3 (PX_1241): 97.46%')
 
 elif Lane == '4 (PX_1253)':
     st.subheader('Status for 4 (PX_1253)')
-    st.write("Spent less than 13 days in range 1 to 15:Approve/OK to use")
-    st.write("Spent less than 5 days in range 15 to 20: Assess")
+    st.write("Spent less than 13 days in range 1 to 15 C:Approve/OK to use")
+    st.write("Spent less than 5 days in range 15 to 20 C: Assess")
     st.subheader('RSB for 4 (PX_1253): 99.06%')
 
 elif Lane == '5 (PX_1254)':
     st.subheader('Status for 5 (PX_1254)')
-    st.write("Spent less than 2 days in range -4 to 1: Assess")
-    st.write("Spent less than 13 days in range 1 to 15: Approve/OK to use")
+    st.write("Spent less than 2 days in range -4 to 1 C: Assess")
+    st.write("Spent less than 13 days in range 1 to 15 C: Approve/OK to use")
     st.subheader('RSB for 5 (PX_1254): 97.48%')
 
 # elif Lane == '6 (Clinical Site)':
@@ -165,18 +165,18 @@ elif kit == 'Kit 3':
     st.subheader('RSB for Kit 3: 81.65%')
 #### 
 
-elif Lane_fork_day == 'Shreveport':
-    st.image(image= Image.open('images/Shreveport.png'),width=370)
-    st.write('Shreveport does not have any fork, So we are considering the start day for the analysis.')
-    result2=pd.read_csv('data/fork/time_S_day.csv')
-    chart= alt.Chart(result2).mark_bar( color='orange', size = 30).encode(
-        x = alt.X('weekday',axis=alt.Axis(labelAngle=0),sort=alt.EncodingSortField(field="weekday", op="count", order='ascending')),
-        y=alt.Y('Count'),
-        tooltip=["Count",'weekday']
-    ).properties (title='Start Day of Shipments (Shreveport lane)',width = 400)
-    st.subheader('Chart 2.2.D: Start Day of Shipments (Shreveport lane)')
-    chart
-    ### Weekday
+# elif Lane_fork_day == 'Shreveport':
+#     st.image(image= Image.open('images/Shreveport.png'),width=370)
+#     st.write('Shreveport does not have any fork, So we are considering the start day for the analysis.')
+#     result2=pd.read_csv('data/fork/time_S_day.csv')
+#     chart= alt.Chart(result2).mark_bar( color='orange', size = 30).encode(
+#         x = alt.X('weekday',axis=alt.Axis(labelAngle=0),sort=alt.EncodingSortField(field="weekday", op="count", order='ascending')),
+#         y=alt.Y('Count'),
+#         tooltip=["Count",'weekday']
+#     ).properties (title='Start Day of Shipments (Shreveport lane)',width = 400)
+#     st.subheader('Chart 2.2.D: Start Day of Shipments (Shreveport lane)')
+#     chart
+#     ### Weekday
 
 
 
