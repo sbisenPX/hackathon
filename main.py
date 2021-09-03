@@ -39,12 +39,13 @@ st.image('images/logo.png')
 ##########################################################################
 ####### Analysis 
 ### text
-original_title = '<p style="font-family:Montserrat; color:Black; font-size: 46px;">Mapping</p>'
+original_title = '<p style="font-family:Montserrat; color:#1A212E; font-size: 60px;">Mapping</p>'
 st.markdown(original_title, unsafe_allow_html=True)
-st.image('images/hackathon_full.png', width=1200)
+st.image('images/hackathon_full.png', width=1400)
 
 # all_paths
-# # hash_list= [1, 2, 3, 4, 5, 6, 7]
+original_title = '<p style="font-family:Montserrat; color:#1A212E; font-size: 60px;">Path Of A Shipment</p>'
+st.markdown(original_title, unsafe_allow_html=True)
 x = st.number_input("Enter Shipment id/node number to get its path")
 
 
@@ -57,12 +58,15 @@ if x:
         for leaf in leaves:
             paths = nx.all_simple_paths(G, root, leaf)
             all_paths.extend(paths)
-    list_node= []
     for i in all_paths:
         if x in i:
-            list_node.append(i)
-            
-    st.write(list_node)
+            dic = {1: "1(PX_1228)", 2:"2(PX_1241)", 3:"3(PX_1241)", 4:"4(PX_1253)", 5:"5(PX_1254)", 6:"6(Clinical Site)", 7:"7(Customer Location)"}
+            i_new=[dic.get(n, n) for n in i]
+
+    st.write(i_new)
+
+# option = st.multiselect('1 (PX_1228)',('2 (PX_1241)', '3 (PX_1241)', '4 (PX_1253)','5 (PX_1254)','6 (Clinical Site)','7 (Customer Location)'))
+# st.write('You selected:', option)
 
     
 
@@ -95,7 +99,7 @@ if x:
 
 
 
-b_title = '<p style="font-family:Montserrat; color:Black; font-size: 46px;">Status/ RSB</p>'
+b_title = '<p style="font-family:Montserrat; color:Black; font-size: 60px;">Status/ RSB</p>'
 st.markdown(b_title, unsafe_allow_html=True)
 
 Lane = st.radio("Select Shipment: Status Result ",('1 (PX_1228)','2 (PX_1236)','3 (PX_1241)','4 (PX_1253)','5 (PX_1254)','6 (Clinical Site)','7 (Customer Location)'))
