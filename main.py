@@ -43,21 +43,30 @@ original_title = '<p style="font-family:Montserrat; color:Black; font-size: 46px
 st.markdown(original_title, unsafe_allow_html=True)
 st.image('images/hackathon_full.png', width=1200)
 
-# G = nx.DiGraph([(1, 2), (1, 3), (2, 4), (2, 5), (3, 5),(4,6),(5, 7)])
-# roots = (v for v, d in G.in_degree() if d == 0)
-# leaves = (v for v, d in G.out_degree() if d == 0)
-# all_paths = []
-# for root in roots:
-#     for leaf in leaves:
-#         paths = nx.all_simple_paths(G, root, leaf)
-#         all_paths.extend(paths)
 # all_paths
 # # hash_list= [1, 2, 3, 4, 5, 6, 7]
-# x = st.text_input("Enter your answer here",key=id_generator())
+x = st.number_input("Enter Shipment id/node number to get its path")
 
-# for i in all_paths:
-#     if x in i:
-#       st.write(i)
+
+if x:
+    G = nx.DiGraph([(1, 2), (1, 3), (2, 4), (2, 5), (3, 5),(4,6),(5, 7)])
+    roots = (v for v, d in G.in_degree() if d == 0)
+    leaves = (v for v, d in G.out_degree() if d == 0)
+    all_paths = []
+    for root in roots:
+        for leaf in leaves:
+            paths = nx.all_simple_paths(G, root, leaf)
+            all_paths.extend(paths)
+    list_node= []
+    for i in all_paths:
+        if x in i:
+            list_node.append(i)
+            
+    st.write(list_node)
+
+    
+
+
 
 # path = st.radio("Select Node to get mapping ",('1 (PX_1228)','2 (PX_1236)','3 (PX_1241)','4 (PX_1253)','5 (PX_1254)','6 (Clinical Site)','7 (Customer Location)'))
 # if path == '1 (PX_1228)':
