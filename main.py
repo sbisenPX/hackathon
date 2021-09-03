@@ -39,12 +39,12 @@ st.image('images/logo.png')
 ##########################################################################
 ####### Analysis 
 ### text
-original_title = '<p style="font-family:Montserrat; color:#1A212E; font-size: 60px;">Mapping</p>'
+original_title = '<p style="font-family:Montserrat; color:#1A212E; font-size: 46px;">Mapping: Journey of a kit</p>'
 st.markdown(original_title, unsafe_allow_html=True)
-st.image('images/hackathon_full.png', width=1400)
+st.image('images/hackathon_full.png', width=1500)
 
 # all_paths
-original_title = '<p style="font-family:Montserrat; color:#1A212E; font-size: 60px;">Path Of A Shipment</p>'
+original_title = '<p style="font-family:Montserrat; color:#1A212E; font-size: 46px;">Path Of A Shipment</p>'
 st.markdown(original_title, unsafe_allow_html=True)
 if __name__ == '__main__':
     input = st.empty()
@@ -105,46 +105,64 @@ if __name__ == '__main__':
 
 
 
-b_title = '<p style="font-family:Montserrat; color:Black; font-size: 60px;">Status/ RSB</p>'
+b_title = '<p style="font-family:Montserrat; color:Black; font-size: 46px;">Status/ RSB</p>'
 st.markdown(b_title, unsafe_allow_html=True)
 
-Lane = st.radio("Select Shipment: Status Result ",('1 (PX_1228)','2 (PX_1236)','3 (PX_1241)','4 (PX_1253)','5 (PX_1254)','6 (Clinical Site)','7 (Customer Location)'))
+Lane = st.radio("Select Shipment: Status Result ",('1 (PX_1228)','2 (PX_1236)','3 (PX_1241)','4 (PX_1253)','5 (PX_1254)'))
 if Lane == '1 (PX_1228)':
     st.subheader('Status for 1 (PX_1228)')
-    st.write("Approve/OK to use")
-    st.subheader('RSB for 1 (PX_1228)')
+    st.write("Spent less than 13 days in range 1 to 15: Approve/OK to use")
+    st.write("Spent less than 5 days in range 15 to 20: Assess")
+    st.write("Spent less than 2 days in range above 20: Assess")
+    st.subheader('RSB for 1 (PX_1228): 86.70%')
 
 elif Lane == '2 (PX_1236)':
     st.subheader('Status for 2 (PX_1236)')
-    st.write("Approve/OK to use")
-    st.subheader('RSB for 2 (PX_1236)')
+    st.write("Spent less than 2 days in range -4 to 1:Assess")
+    st.write("Spent less than 13 days in range 1 to 15:Approve/OK to use")
+    st.subheader('RSB for 2 (PX_1236): 99.15%')
 
 elif Lane == '3 (PX_1241)':
     st.subheader('Status for 3 (PX_1241)')
-    st.write("Reject/Do not use")
-    st.subheader('RSB for 3 (PX_1241)')
+    st.write("Spent less than 13 days in range 1 to 15: Approve/OK to use")
+    st.write("Spent less than 5 days in range 15 to 20: Access")
+    st.write("Spent less than 2 days in range above 20: Access")
+    st.subheader('RSB for 3 (PX_1241): 97.46%')
 
 elif Lane == '4 (PX_1253)':
     st.subheader('Status for 4 (PX_1253)')
-    st.write("Approve/OK to use")
-    st.subheader('RSB for 4 (PX_1253)')
+    st.write("Spent less than 13 days in range 1 to 15:Approve/OK to use")
+    st.write("Spent less than 5 days in range 15 to 20: Assess")
+    st.subheader('RSB for 4 (PX_1253): 99.06%')
 
 elif Lane == '5 (PX_1254)':
     st.subheader('Status for 5 (PX_1254)')
-    st.write("Approve/OK to use")
-    st.subheader('RSB for 5 (PX_1254)')
+    st.write("Spent less than 2 days in range -4 to 1: Assess")
+    st.write("Spent less than 13 days in range 1 to 15: Approve/OK to use")
+    st.subheader('RSB for 5 (PX_1254): 97.48%')
 
-elif Lane == '6 (Clinical Site)':
-    st.subheader('Status for 6 (Clinical Site)')
-    st.write("Approve/OK to use")
-    st.subheader('RSB for 6 (Clinical Site)')
+# elif Lane == '6 (Clinical Site)':
+#     st.subheader('Status for 6 (Clinical Site)')
+#     st.write("Approve/OK to use")
+#     st.subheader('RSB for 6 (Clinical Site)')
 
-elif Lane == '7 (Customer Location)':
-    st.subheader('Status for 7 (Customer Location)')
-    st.write("Assess")
-    st.subheader('RSB for 7 (Customer Location)')
+# elif Lane == '7 (Customer Location)':
+#     st.subheader('Status for 7 (Customer Location)')
+#     st.write("Assess")
+#     st.subheader('RSB for 7 (Customer Location)')
 
+b_title = '<p style="font-family:Montserrat; color:Black; font-size: 46px;">Kit Level Cummulative RSB</p>'
+st.markdown(b_title, unsafe_allow_html=True)
 
+kit = st.radio("Select Shipment: Status Result ",('Kit 1','Kit 2','Kit 3'))
+if kit == 'Kit 1':
+    st.subheader('RSB for Kit 1: 84.92 %')
+
+elif kit== 'Kit 2':
+    st.subheader('RSB for Kit 2: 83.34%')
+
+elif kit == 'Kit 3':
+    st.subheader('RSB for Kit 3: 81.65%')
 #### 
 
 elif Lane_fork_day == 'Shreveport':
