@@ -53,10 +53,11 @@ for root in roots:
         all_paths.extend(paths)
 all_paths
 hash_list= 1, 2, 3, 4, 5, 6, 7
-x=int(input())
-for i in all_paths:
-    if x in i:
-      st.write(i)
+x = st.text_input("Enter your answer here",key=id_generator())
+
+# for i in all_paths:
+#     if x in i:
+#       st.write(i)
 
 # path = st.radio("Select Node to get mapping ",('1 (PX_1228)','2 (PX_1236)','3 (PX_1241)','4 (PX_1253)','5 (PX_1254)','6 (Clinical Site)','7 (Customer Location)'))
 # if path == '1 (PX_1228)':
