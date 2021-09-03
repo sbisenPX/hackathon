@@ -43,17 +43,17 @@ original_title = '<p style="font-family:Montserrat; color:Black; font-size: 46px
 st.markdown(original_title, unsafe_allow_html=True)
 st.image('images/hackathon_full.png', width=1200)
 
-G = nx.DiGraph([(1, 2), (1, 3), (2, 4), (2, 5), (3, 5),(4,6),(5, 7)])
-roots = (v for v, d in G.in_degree() if d == 0)
-leaves = (v for v, d in G.out_degree() if d == 0)
-all_paths = []
-for root in roots:
-    for leaf in leaves:
-        paths = nx.all_simple_paths(G, root, leaf)
-        all_paths.extend(paths)
-all_paths
-hash_list= 1, 2, 3, 4, 5, 6, 7
-x = st.text_input("Enter your answer here",key=id_generator())
+# G = nx.DiGraph([(1, 2), (1, 3), (2, 4), (2, 5), (3, 5),(4,6),(5, 7)])
+# roots = (v for v, d in G.in_degree() if d == 0)
+# leaves = (v for v, d in G.out_degree() if d == 0)
+# all_paths = []
+# for root in roots:
+#     for leaf in leaves:
+#         paths = nx.all_simple_paths(G, root, leaf)
+#         all_paths.extend(paths)
+# all_paths
+# # hash_list= [1, 2, 3, 4, 5, 6, 7]
+# x = st.text_input("Enter your answer here",key=id_generator())
 
 # for i in all_paths:
 #     if x in i:
